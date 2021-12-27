@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>SisPedidos - SMEC</title>
+</head>
+<body>
+
+<h1>Adicionar Produtos ao Pedido</h1>
+
+<h2>Detalhes do pedido</h2>
+<p><strong>Id: </strong><span th:text="${pedido.id}"></span></p>
+<p><strong>Escola: </strong><span th:text="${pedido.escola}"></span></p>
+<p><strong>Responsável: </strong><span th:text="${pedido.responsavel}"></span></p>
+
+<form action="" method="post">
+	
+		<div>
+			<label>Código do produto:</label><input type="text" name="produto">
+		</div>
+		
+		<div>
+			<label>Quantidade:</label><input type="text" name="quantidade">
+		</div>
+		
+		<div>
+			<button type="submit">Salvar</button>
+			<button type="reset">Limpar</button>
+		</div>
+	</form>
+</body>
+</html>

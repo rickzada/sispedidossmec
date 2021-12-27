@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>SisPedidos - SMEC</title>
+</head>
+<body>
+<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Escola</th>
+				<th>Responsável</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pedido: ${pedidos}">
+				<td><a th:href="@{/pedidos/{id}(id=${pedido.id})}"><span th:text="${pedido.id}"></span></a></td>
+				<td th:text="${pedido.escola}"></td>
+				<td th:text="${pedido.responsavel}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
