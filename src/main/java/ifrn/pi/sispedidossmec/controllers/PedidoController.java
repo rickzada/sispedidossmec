@@ -43,6 +43,26 @@ public class PedidoController {
 		mv.addObject("pedidos", pedidos);
 		return mv;
 	}
+	
+	@GetMapping("pedidos/detalhes/{idPed}")
+	public ModelAndView detalharPedidos(@PathVariable Long idPed) {
+		ModelAndView mv = new ModelAndView();
+		Optional<Pedido> opt = pr.findById(idPed);
+
+		if (opt.isEmpty()) {
+			mv.setViewName("redirect:/pedidos/listar");
+			return mv;
+		}
+
+		mv.setViewName("pedidos/detalhes");
+		Pedido pedido = opt.get();
+
+		List<ItemPedido> itensPedidos = ipr.findByPedido(pedido);
+		
+		mv.addObject("pedido", pedido);
+		mv.addObject("itensPedidos", itensPedidos);
+		return mv;
+	}
 
 	@GetMapping("pedidos/{id}")
 	public ModelAndView adicionarItens(@PathVariable Long id) {

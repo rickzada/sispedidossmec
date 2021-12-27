@@ -16,9 +16,10 @@
 		</thead>
 		<tbody>
 			<tr th:each="pedido: ${pedidos}">
-				<td><a th:href="@{/pedidos/{id}(id=${pedido.id})}"><span th:text="${pedido.id}"></span></a></td>
+				<td> <a th:href="@{/pedidos/detalhes/{idPed}(idPed=${pedido.id})}"><span th:text="${pedido.id}"></span></a></td>
 				<td th:text="${pedido.escola}"></td>
 				<td th:text="${pedido.responsavel}"></td>
+				<td><a th:href="@{/pedidos/{id}(id=${pedido.id})}"><span>Adicionar itens ao pedido</span></a></td>
 			</tr>
 		</tbody>
 	</table>
