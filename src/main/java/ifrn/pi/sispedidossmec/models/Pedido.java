@@ -13,6 +13,7 @@ public class Pedido {
 	private Long id;
 	private String escola;
 	private String responsavel;
+	private String status;
 	
 	public Long getId() {
 		return id;
@@ -31,6 +32,12 @@ public class Pedido {
 	}
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
