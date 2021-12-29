@@ -1,5 +1,6 @@
 package ifrn.pi.sispedidossmec.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Usuario implements UserDetails{
 	          name = "usuario_id", referencedColumnName = "login"), 
 	        inverseJoinColumns = @JoinColumn(
 	          name = "role_id", referencedColumnName = "nomeRole")) 
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<Role>();
 	
 	public String getNome() {
 		return nome;
@@ -57,8 +58,10 @@ public class Usuario implements UserDetails{
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setRoles(String role) {
+		Role r = new Role();
+		r.setNomeRole(role);
+		roles.add(r);
 	}
 
 	@Override
