@@ -20,19 +20,19 @@ public class ProdutoController {
 
 	@RequestMapping("/produtos/form")
 	public String form() {
-		return "formProduto";
+		return "produtos/formProduto";
 	}
 	
 	@PostMapping("/produtos")
 	public String adicionar(Produto produto) {
 		pr.save(produto);
-		return "produto-adicionado";
+		return "redirect:/produtos/listar";
 	}
 	
 	@GetMapping("produtos/listar")
 	public ModelAndView listar() {
 		List<Produto> produtos = pr.findAll();
-		ModelAndView mv = new ModelAndView("listar");
+		ModelAndView mv = new ModelAndView("produtos/listar");
 		mv.addObject("produtos", produtos);
 		return mv;
 	}

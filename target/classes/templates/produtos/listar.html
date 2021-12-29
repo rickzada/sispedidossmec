@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title>SisPedidos - SMEC</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Produtos cadastrados</h1>
+		<table class="highlight">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Descrição</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto: ${produtos}">
+					<td th:text="${produto.id}" />
+					<td th:text="${produto.nome}" />
+					<td th:text="${produto.descricao}" />
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<a class="waves-effect waves-light btn" href="/produtos/form">Novo
+				produto</a>
+				<a class="waves-effect waves-light btn" href="/">Início</a>
+		</div>
+	</div>
+</body>
+</html>

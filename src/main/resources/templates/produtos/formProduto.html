@@ -5,32 +5,33 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<title>SisPedidos - SMEC</title>
+<title>SisPedidos - Cadastrar Produto</title>
 </head>
 <body>
 	<div class="container">
-		<h1>Novo Pedido</h1>
+		<h1>Cadastrar Produto</h1>
 		<div class="row">
-			<form class="col s9" action="/pedidos" method="post">
+			<form action="/produtos" method="post" class="col s6">
 
 				<div>
-					<label>Escola:</label><input type="text" name="escola">
+					<label>Nome:</label><input type="text" name="nome">
 				</div>
 
 				<div>
-					<label>Responsável:</label><input type="text" name="responsavel">
+					<label>Descrição:</label><input type="text" name="descricao">
 				</div>
 
 				<div>
 					<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 					<button class="waves-effect waves-light btn" type="reset">Limpar</button>
 				</div>
+				
+				<h2>Navegação</h2>
+				<div>
+					<a class="waves-effect waves-light btn" href="/produtos/listar">Produtos cadastrados</a>
+					<a class="waves-effect waves-light btn" href="/">Início</a>
+				</div>
 			</form>
-		</div>
-		<h2>Navegação</h2>
-		<div>
-			<a class="waves-effect waves-light btn" href="/pedidos/listar">Pedidos</a>
-			<a class="waves-effect waves-light btn" href="/">Início</a>
 		</div>
 	</div>
 </body>

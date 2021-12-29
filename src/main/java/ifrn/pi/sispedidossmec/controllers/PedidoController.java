@@ -36,13 +36,13 @@ public class PedidoController {
 	public String adicionar(Pedido pedido) {
 		pedido.setStatus("AGUARDANDO CONFIRMAÇÃO");
 		pr.save(pedido);
-		return "pedidos/pedido-adicionado";
+		return "redirect:/pedidos/listar";
 	}
 
 	// Método que lista todos os pedidos
 	@GetMapping("pedidos/listar")
 	public ModelAndView listar() {
-		List<Pedido> pedidos = pr.findAll();
+		List<Pedido> pedidos = pr.findByStatusEquals("AGUARDANDO CONFIRMAÇÃO");
 		ModelAndView mv = new ModelAndView("pedidos/listar");
 		mv.addObject("pedidos", pedidos);
 		return mv;

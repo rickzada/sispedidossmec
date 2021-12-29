@@ -3,10 +3,13 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
-	<h2>Informações gerais</h2>
+	<div class="container">
+		<h2>Informações gerais</h2>
 		<p>
 			<strong>Id: </strong><span th:text="${pedido.id}"></span>
 		</p>
@@ -14,23 +17,28 @@
 			<strong>Escola: </strong><span th:text="${pedido.escola}"></span>
 		</p>
 		<p>
-			<strong>Responsável: </strong><span
-				th:text="${pedido.responsavel}"></span>
+			<strong>Responsável: </strong><span th:text="${pedido.responsavel}"></span>
 		</p>
-	<h2>Itens do pedido</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Produto</th>
-				<th>Quantidade</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="item: ${itensPedidos}">
-				<td th:text="${item.produto.nome}"></td>
-				<td th:text="${item.quantidade}"></td>
-			</tr>
-		</tbody>
-	</table>
+		<h2>Itens do pedido</h2>
+		<table class="highlight">
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Quantidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item: ${itensPedidos}">
+					<td th:text="${item.produto.nome}"></td>
+					<td th:text="${item.quantidade}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Navegação</h2>
+		<div>
+			<a class="waves-effect waves-light btn" href="/pedidos/listar">Pedidos</a>
+			<a class="waves-effect waves-light btn" href="/">Início</a>
+		</div>
+	</div>
 </body>
 </html>

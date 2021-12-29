@@ -2,24 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
-	<h1>Novo Pedido</h1>
-	<form action="/pedidos" method="post">
-	
-		<div>
-			<label>Escola:</label><input type="text" name="escola">
+	<div class="container">
+		<h1>Novo Pedido</h1>
+		<div class="row">
+			<form class="col s9" action="/pedidos" method="post">
+
+				<div>
+					<label>Escola:</label><input type="text" name="escola">
+				</div>
+
+				<div>
+					<label>Responsável:</label><input type="text" name="responsavel">
+				</div>
+
+				<div>
+					<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+					<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+				</div>
+			</form>
 		</div>
-		
+		<h2>Navegação</h2>
 		<div>
-			<label>Responsável:</label><input type="text" name="responsavel">
+			<a class="waves-effect waves-light btn" href="/pedidos/listar">Pedidos</a>
+			<a class="waves-effect waves-light btn" href="/">Início</a>
 		</div>
-		
-		<div>
-			<button type="submit">Salvar</button>
-			<button type="reset">Limpar</button>
-		</div>
-	</form>
+	</div>
 </body>
 </html>

@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <head>
 <meta charset="UTF-8">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
-	<h1>Pedidos</h1>
-	<h2>Pedidos pendentes</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Escola</th>
-				<th>Responsável</th>
-				<th>Status</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="pedido: ${pedidos}">
-				<td th:text="${pedido.id}"></td>
-				<td th:text="${pedido.escola}"></td>
-				<td th:text="${pedido.responsavel}"></td>
-				<td th:text="${pedido.status}"></td>
-				<td><a
-					th:href="@{/pedidos/baixa/{idPedBaixa}(idPedBaixa=${pedido.id})}"><span>DAR
-							BAIXA NO PEDIDO</span></a></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="container">
+		<h1>Pedidos</h1>
+		<h2>Pedidos pendentes</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Escola</th>
+					<th>Responsável</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pedido: ${pedidos}">
+					<td th:text="${pedido.id}"></td>
+					<td th:text="${pedido.escola}"></td>
+					<td th:text="${pedido.responsavel}"></td>
+					<td th:text="${pedido.status}"></td>
+					<td><a
+						th:href="@{/pedidos/baixa/{idPedBaixa}(idPedBaixa=${pedido.id})}"><span>DAR
+								BAIXA NO PEDIDO</span></a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h2>Navegação</h2>
+		<div>
+			<a class="waves-effect waves-light btn" href="/">Início</a>
+		</div>
+	</div>
 </body>
 </html>

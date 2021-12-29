@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
-	<form action="" method="post">
+	<div class="container">
+		<form class="" action="" method="post">
 
-		<div>
-			<p>
-				<strong>Código de identificação do pedido: </strong><span
-					th:text="${pedido.id}"></span>
-			</p>
-		</div>
+			<div>
+				<p>
+					<strong>Código de identificação do pedido: </strong><span
+						th:text="${pedido.id}"></span>
+				</p>
+			</div>
 
+			<div>
+				<p>
+					<strong>Escola: </strong><span th:text="${pedido.escola}"></span>
+				</p>
+			</div>
+
+			<div>
+				<p>
+					<strong>Responsável: </strong><span th:text="${pedido.responsavel}"></span>
+				</p>
+			</div>
+
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">CONFIRMAR BAIXA NO PEDIDO</button>
+			</div>
+		</form>
+		<h2>Navegação</h2>
 		<div>
-			<p>
-				<strong>Escola: </strong><span
-					th:text="${pedido.escola}"></span>
-			</p>
+			<a class="waves-effect waves-light btn" href="/pedidos/formBaixaPedido">Pedidos pendentes</a>
+			<a class="waves-effect waves-light btn" href="/">Início</a>
 		</div>
-		
-		<div>
-			<p>
-				<strong>Responsável: </strong><span
-					th:text="${pedido.responsavel}"></span>
-			</p>
-		</div>
-		
-		<div>
-			<button type="submit">CONFIRMAR BAIXA NO PEDIDO</button>
-		</div>
-	</form>
+	</div>
 </body>
 </html>

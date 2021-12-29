@@ -3,28 +3,41 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
+	<div class="container">
 
-<p><strong>Código de identificação do pedido: </strong><span th:text="${pedido.id}"></span></p>
+		<p>
+			<strong>Código de identificação do pedido: </strong><span
+				th:text="${pedido.id}"></span>
+		</p>
 
-<h1>Adicionar Produtos ao Pedido</h1> 
+		<h1>Adicionar Produtos ao Pedido</h1>
+		<div class="row">
+			<form class="col s6" action="" method="post">
 
-<form action="" method="post">
-	
-		<div>
-			<label>Código do produto:</label><input type="text" name="produto">
+				<div>
+					<label>Código do produto:</label><input type="text" name="produto">
+				</div>
+
+				<div>
+					<label>Quantidade:</label><input type="text" name="quantidade">
+				</div>
+
+				<div>
+					<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+					<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+				</div>
+			</form>
 		</div>
-		
+		<h2>Navegação</h2>
 		<div>
-			<label>Quantidade:</label><input type="text" name="quantidade">
+			<a class="waves-effect waves-light btn" href="/pedidos/listar">Pedidos</a>
+			<a class="waves-effect waves-light btn" href="/">Início</a>
 		</div>
-		
-		<div>
-			<button type="submit">Salvar</button>
-			<button type="reset">Limpar</button>
-		</div>
-	</form>
+	</div>
 </body>
 </html>
