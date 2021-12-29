@@ -21,7 +21,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/").permitAll()
-		.antMatchers(HttpMethod.GET, "/produtos/form").hasRole("SEC")
+		
+		//Acessos do usuário com perfil de Chefe de Almoxarifado
+		.antMatchers(HttpMethod.GET, "/produtos/form").hasRole("ALM")
+		.antMatchers(HttpMethod.POST, "/produtos").hasRole("ALM")
+		.antMatchers(HttpMethod.GET, "/pedidos/formBaixaPedido").hasRole("ALM")
+		.antMatchers(HttpMethod.GET, "/pedidos/baixa/{idPedBaixa}").hasRole("ALM")
+		.antMatchers(HttpMethod.POST, "pedidos/baixa/{idPedBaixa}").hasRole("ALM")
+		
+		//Acessos do usuário com perfil de Chefe de Diretor
+		.antMatchers(HttpMethod.GET, "/pedidos/form").hasRole("DIR")
+		.antMatchers(HttpMethod.POST, "/pedidos/").hasRole("DIR")
+		.antMatchers(HttpMethod.GET, "pedidos/listar").hasRole("DIR")
+		.antMatchers(HttpMethod.GET, "pedidos/detalhes/{idPed}").hasRole("DIR")
+		.antMatchers(HttpMethod.GET, "pedidos/{id}").hasRole("DIR")
+		.antMatchers(HttpMethod.POST, "pedidos/{idPedido}").hasRole("DIR")
+		
+		
+		.antMatchers(HttpMethod.GET, "/usuarios/form").hasRole("SEC")
+		.antMatchers(HttpMethod.POST, "/usuarios").hasRole("SEC")
+		
 		.anyRequest().authenticated()
 		.and().formLogin().permitAll()
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
