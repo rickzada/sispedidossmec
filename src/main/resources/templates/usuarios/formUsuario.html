@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>SisPedidos - SMEC</title>
 </head>
 <body>
@@ -20,14 +22,13 @@
 			<label>Senha:</label><input type="text" name="senha">
 		</div>
 
-		<div>
-			<label for="perfil">Defina o perfil de acesso:</label> <select
-				name="roles" id="perfil">
-				<option value="ROLE_DIR">Diretor</option>
-				<option value="ROLE_SEC">Secretário</option>
-				<option value="ROLE_ALM">Cheve de almoxarifado</option>
-			</select>
-		</div>
+ <label>Defina o perfil de acesso:</label>
+  <select class="browser-default"  name = "roles" id="perfil">
+   
+    <option value="" disabled selected>Escolha o perfil de acesso:</option>
+    <option value="ROLE_DIR">Diretor</option>
+    <option value="ROLE_ALM">Chefe de Almoxarifado</option>
+  </select>
 
 		<div>
 					<button class="waves-effect waves-light btn" type="submit">Salvar</button>
